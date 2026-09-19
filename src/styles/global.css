@@ -1,0 +1,99 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--shelf-bg);
+  color: var(--shelf-text);
+  font-family: var(--shelf-font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(circle at 12% -10%, rgb(215 162 74 / 8%), transparent 45%),
+    radial-gradient(circle at 88% 0%, rgb(95 179 161 / 7%), transparent 40%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--shelf-font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* A single, consistent visible focus style used across every interactive
+   element in the library. Only shown for keyboard/programmatic focus. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--shelf-focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgb(215 162 74 / 35%);
+  color: var(--shelf-text);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--shelf-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--shelf-border-strong);
+  border-radius: 8px;
+  border: 3px solid var(--shelf-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--shelf-brass);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

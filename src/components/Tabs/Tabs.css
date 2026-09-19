@@ -1,0 +1,93 @@
+.shelf-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shelf-tabs--vertical {
+  flex-direction: row;
+  gap: 24px;
+}
+
+.shelf-tabs__list {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--shelf-bg-card);
+  border: 1px solid var(--shelf-border);
+  border-radius: var(--shelf-radius-md);
+  position: relative;
+}
+
+.shelf-tabs--vertical .shelf-tabs__list {
+  flex-direction: column;
+  align-self: flex-start;
+  min-width: 180px;
+}
+
+.shelf-tabs__tab {
+  /* `isolation: isolate` gives this tab its own stacking context, so the
+     indicator's `z-index: -1` below only tucks it behind THIS tab's own
+     label text — not behind the tab list's opaque background. Without it,
+     `position: relative` alone doesn't create a stacking context, the
+     negative z-index escapes all the way past the list's background, and
+     the selected tab's dark `--shelf-brass-ink` text (meant to sit on the
+     bright brass pill) ends up directly on the dark card background
+     instead — a real, ~1:1 contrast failure, not just an axe technicality. */
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--shelf-radius-sm);
+  background: transparent;
+  color: var(--shelf-text-dim);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--shelf-dur-base) var(--shelf-ease-out),
+    background-color var(--shelf-dur-base) var(--shelf-ease-out);
+}
+
+.shelf-tabs--vertical .shelf-tabs__tab {
+  justify-content: flex-start;
+}
+
+.shelf-tabs__tab:hover:not(:disabled) {
+  color: var(--shelf-text);
+}
+
+.shelf-tabs__tab:disabled {
+  color: var(--shelf-text-faint);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.shelf-tabs__tab--selected {
+  color: var(--shelf-brass-ink);
+}
+
+.shelf-tabs__indicator {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--shelf-brass-strong), var(--shelf-brass));
+  border-radius: var(--shelf-radius-sm);
+  box-shadow: var(--shelf-shadow-sm);
+}
+
+.shelf-tabs__panel {
+  color: var(--shelf-text-dim);
+  line-height: 1.6;
+}
+
+.shelf-tabs__panel:focus-visible {
+  outline: 2px solid var(--shelf-focus-ring);
+  outline-offset: 4px;
+  border-radius: 4px;
+}

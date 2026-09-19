@@ -1,0 +1,150 @@
+.shelf-button {
+  --_fg: var(--shelf-text);
+  --_bg: var(--shelf-bg-card);
+  --_border: var(--shelf-border-strong);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border: 1px solid var(--_border);
+  border-radius: var(--shelf-radius-md);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--shelf-dur-base) var(--shelf-ease-out),
+    border-color var(--shelf-dur-base) var(--shelf-ease-out),
+    color var(--shelf-dur-base) var(--shelf-ease-out),
+    transform var(--shelf-dur-fast) var(--shelf-ease-out),
+    box-shadow var(--shelf-dur-base) var(--shelf-ease-out);
+  transform: translateY(0) scale(1);
+}
+
+.shelf-button:hover:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(-1px);
+  box-shadow: var(--shelf-shadow-sm);
+}
+
+.shelf-button:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(0) scale(0.97);
+  transition-duration: var(--shelf-dur-fast);
+}
+
+.shelf-button:disabled,
+.shelf-button[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.shelf-button:disabled {
+  transform: none;
+}
+
+/* ---- Sizes ---- */
+.shelf-button--sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 0.8125rem;
+  border-radius: var(--shelf-radius-sm);
+}
+
+.shelf-button--md {
+  height: 40px;
+  padding: 0 18px;
+  font-size: 0.9375rem;
+}
+
+.shelf-button--lg {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 1rem;
+}
+
+.shelf-button--full {
+  width: 100%;
+}
+
+/* ---- Variants ---- */
+.shelf-button--primary {
+  --_bg: linear-gradient(180deg, var(--shelf-brass-strong), var(--shelf-brass));
+  background: var(--_bg);
+  --_border: transparent;
+  --_fg: var(--shelf-brass-ink);
+  box-shadow: 0 1px 0 0 rgb(255 255 255 / 25%) inset;
+}
+
+.shelf-button--primary:hover:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: var(--shelf-shadow-glow), 0 1px 0 0 rgb(255 255 255 / 25%) inset;
+}
+
+.shelf-button--secondary {
+  --_bg: var(--shelf-bg-card);
+  --_border: var(--shelf-border-strong);
+  --_fg: var(--shelf-text);
+}
+
+.shelf-button--secondary:hover:not(:disabled):not([aria-disabled='true']) {
+  --_bg: var(--shelf-bg-card-hover);
+  --_border: var(--shelf-teal);
+}
+
+.shelf-button--ghost {
+  --_bg: transparent;
+  --_border: transparent;
+  --_fg: var(--shelf-text-dim);
+}
+
+.shelf-button--ghost:hover:not(:disabled):not([aria-disabled='true']) {
+  --_bg: var(--shelf-bg-card);
+  --_fg: var(--shelf-text);
+}
+
+.shelf-button--danger {
+  --_bg: transparent;
+  --_border: var(--shelf-danger);
+  --_fg: var(--shelf-danger-strong);
+}
+
+.shelf-button--danger:hover:not(:disabled):not([aria-disabled='true']) {
+  --_bg: rgb(226 104 90 / 12%);
+}
+
+/* ---- Content ---- */
+.shelf-button__icon {
+  display: inline-flex;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.shelf-button__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.shelf-button__label {
+  display: inline-flex;
+}
+
+.shelf-button__spinner {
+  display: inline-flex;
+  width: 1.1em;
+  height: 1.1em;
+  animation: shelf-spin 0.8s linear infinite;
+}
+
+.shelf-button__spinner svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes shelf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

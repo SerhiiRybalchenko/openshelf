@@ -1,0 +1,104 @@
+.shelf-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--shelf-bg-overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.shelf-modal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--shelf-bg-raised);
+  border: 1px solid var(--shelf-border);
+  border-radius: var(--shelf-radius-lg);
+  box-shadow: var(--shelf-shadow-lg);
+  max-height: min(88vh, 720px);
+}
+
+.shelf-modal--sm {
+  max-width: 380px;
+}
+
+.shelf-modal--md {
+  max-width: 520px;
+}
+
+.shelf-modal--lg {
+  max-width: 720px;
+}
+
+.shelf-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 24px 0;
+}
+
+.shelf-modal__title {
+  font-size: 1.375rem;
+  color: var(--shelf-text);
+}
+
+.shelf-modal__close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--shelf-radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--shelf-text-faint);
+  cursor: pointer;
+  transition:
+    background-color var(--shelf-dur-fast) var(--shelf-ease-out),
+    color var(--shelf-dur-fast) var(--shelf-ease-out),
+    transform var(--shelf-dur-fast) var(--shelf-ease-out);
+}
+
+.shelf-modal__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.shelf-modal__close:hover {
+  background: var(--shelf-bg-card);
+  color: var(--shelf-text);
+}
+
+.shelf-modal__close:active {
+  transform: scale(0.92);
+}
+
+.shelf-modal__description {
+  padding: 8px 24px 0;
+  color: var(--shelf-text-dim);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.shelf-modal__body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  color: var(--shelf-text-dim);
+  line-height: 1.6;
+}
+
+.shelf-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--shelf-border);
+  margin-top: 4px;
+  padding-top: 16px;
+}

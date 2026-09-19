@@ -1,0 +1,155 @@
+.shelf-toaster {
+  position: fixed;
+  z-index: 1300;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(380px, calc(100vw - 32px));
+  margin: 0;
+  padding: 16px;
+  pointer-events: none;
+}
+
+.shelf-toaster--bottom-right {
+  right: 0;
+  bottom: 0;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.shelf-toaster--bottom-left {
+  left: 0;
+  bottom: 0;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.shelf-toaster--top-right {
+  right: 0;
+  top: 0;
+  align-items: flex-end;
+}
+
+.shelf-toaster--top-left {
+  left: 0;
+  top: 0;
+  align-items: flex-start;
+}
+
+.shelf-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 14px 14px 16px;
+  background: var(--shelf-bg-raised);
+  border: 1px solid var(--shelf-border);
+  border-left: 3px solid var(--shelf-info);
+  border-radius: var(--shelf-radius-md);
+  box-shadow: var(--shelf-shadow-lg);
+}
+
+.shelf-toast--success {
+  border-left-color: var(--shelf-success);
+}
+
+.shelf-toast--warning {
+  border-left-color: var(--shelf-warning);
+}
+
+.shelf-toast--error {
+  border-left-color: var(--shelf-danger);
+}
+
+.shelf-toast__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  color: var(--shelf-info);
+}
+
+.shelf-toast--success .shelf-toast__icon {
+  color: var(--shelf-success);
+}
+
+.shelf-toast--warning .shelf-toast__icon {
+  color: var(--shelf-warning);
+}
+
+.shelf-toast--error .shelf-toast__icon {
+  color: var(--shelf-danger-strong);
+}
+
+.shelf-toast__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.shelf-toast__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.shelf-toast__title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--shelf-text);
+}
+
+.shelf-toast__description {
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  color: var(--shelf-text-dim);
+  line-height: 1.5;
+}
+
+.shelf-toast__action {
+  margin-top: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--shelf-brass-strong);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--shelf-dur-fast) var(--shelf-ease-out);
+}
+
+.shelf-toast__action:hover {
+  color: var(--shelf-brass);
+}
+
+.shelf-toast__dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: -2px -2px 0 0;
+  border: none;
+  border-radius: var(--shelf-radius-sm);
+  background: transparent;
+  color: var(--shelf-text-faint);
+  cursor: pointer;
+  transition:
+    background-color var(--shelf-dur-fast) var(--shelf-ease-out),
+    color var(--shelf-dur-fast) var(--shelf-ease-out);
+}
+
+.shelf-toast__dismiss svg {
+  width: 14px;
+  height: 14px;
+}
+
+.shelf-toast__dismiss:hover {
+  background: var(--shelf-bg-card);
+  color: var(--shelf-text);
+}

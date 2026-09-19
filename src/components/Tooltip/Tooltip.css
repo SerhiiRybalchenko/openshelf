@@ -1,0 +1,51 @@
+.shelf-tooltip__wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.shelf-tooltip {
+  position: absolute;
+  z-index: 1200;
+  display: inline-block;
+  max-width: 240px;
+  padding: 6px 10px;
+  border-radius: var(--shelf-radius-sm);
+  background-color: var(--shelf-brass-strong);
+  color: var(--shelf-brass-ink);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: var(--shelf-shadow-md);
+  pointer-events: none;
+  white-space: normal;
+}
+
+/*
+  Centering uses the standalone CSS `translate` property (not `transform`)
+  because framer-motion animates `x`/`y` by writing an inline `transform`
+  style — using `transform` here too would let whichever one rendered last
+  win and silently break centering.
+*/
+.shelf-tooltip--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  translate: -50% 0;
+}
+
+.shelf-tooltip--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  translate: -50% 0;
+}
+
+.shelf-tooltip--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.shelf-tooltip--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  translate: 0 -50%;
+}
