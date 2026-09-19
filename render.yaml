@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: srybal-openshelf
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - source: /*
+        destination: /index.html
